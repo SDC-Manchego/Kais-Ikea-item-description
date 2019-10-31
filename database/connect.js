@@ -8,7 +8,7 @@ const randProdList = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: '123',
   database: 'ikea_products'
 });
 
