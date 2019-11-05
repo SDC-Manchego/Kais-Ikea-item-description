@@ -44,8 +44,10 @@ class ItemDescription extends React.Component {
 
   // selects a random product from the list of products to display
   handleProduct() {
-    var id = this.getItemDescriptionById(this.urlProductId);
+    // eslint-disable-next-line prefer-const
+    let id = this.getItemDescriptionById(this.urlProductId);
     const productChoices = [];
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < this.state.productList.length; i++) {
       if (this.state.productList[i].product_name === this.state.product.product_name) {
         productChoices.push(this.state.productList[i]);
@@ -58,7 +60,7 @@ class ItemDescription extends React.Component {
     const revStyle = {
       textDecoration: 'none',
     };
-    console.log(this.state)
+    // console.log(this.state);
     return (
       <div className="jeff_product_details">
         <div className="product_price">

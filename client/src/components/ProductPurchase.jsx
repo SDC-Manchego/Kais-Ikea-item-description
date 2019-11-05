@@ -21,7 +21,6 @@ class ProductPurchase extends React.Component {
     } else {
       this.setState((prevState) => ({ quantity: prevState.quantity - 1 }));
     }
-
   }
 
   render() {

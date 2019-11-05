@@ -1,5 +1,4 @@
 // uses ../database/index.js to connect to the mysql database
-
 const connection = require('../database/connect.js');
 
 module.exports = {

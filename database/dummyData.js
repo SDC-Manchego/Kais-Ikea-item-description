@@ -3,13 +3,11 @@
 const randomData = require('faker');
 
 // create a random number generator function
-let random = function (max) {
-  return Math.floor(Math.random() * Math.floor(max));
-};
+const random = (max) => Math.floor(Math.random() * Math.floor(max));
 
 // create random records
 // structure the record into an object
-let ProductRecord = function () {
+const ProductRecord = () => {
   this.category = 'Living Room';
   this.names = ['BALKARP', 'BRATHULT', 'DELAKTIG', 'EKEBOL', 'FRIHETEN'];
   this.shortDesc = randomData.lorem.sentence();
@@ -21,20 +19,14 @@ let ProductRecord = function () {
   this.review = parseFloat(random(6));
 };
 
-ProductRecord.prototype.name = function () {
-  return this.names[random(this.names.length)];
-};
+ProductRecord.prototype.name = () => this.names[random(this.names.length)];
 
-ProductRecord.prototype.color_image = function () {
-  return this.color_images[random(this.color_images.length)];
-};
+ProductRecord.prototype.color_image = () => this.color_images[random(this.color_images.length)];
 
-ProductRecord.prototype.color = function () {
-  return this.colors[random(this.colors.length)];
-};
+ProductRecord.prototype.color = () => this.colors[random(this.colors.length)];
 
 // creates a random list of products
-let randProdList = function (itemCount) {
+const randProdList = (itemCount) => {
   let prodList = [];
   for (let i = 0; i < itemCount; i++) {
     let product = new ProductRecord();

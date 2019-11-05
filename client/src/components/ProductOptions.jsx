@@ -21,6 +21,7 @@ class ProductOptions extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({
+        // eslint-disable-next-line react/prop-types
         productColor: this.props.product.product_color,
       });
     }, 500);
