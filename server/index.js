@@ -27,6 +27,18 @@ app.get('/api/products', (req, res) => {
   });
 });
 
+app.post('/products', (req, res) => {
+  res.send('Post request to /products received');
+});
+
+app.put('/products/:id', (req, res) => {
+  res.send(`Received request to update product ${req.params.id}`);
+});
+
+app.delete('/products/:id', (req, res) => {
+  res.send(`Recieved request to delete product ${req.params.id}`);
+});
+
 // check if app is listening
 // eslint-disable-next-line no-console
 app.listen(port, () => { console.log(`listening on ${port}`); });
