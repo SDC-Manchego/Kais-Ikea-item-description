@@ -15,6 +15,19 @@ const product_create = (props, callback) => {
   });
 };
 
+const product_readALL = (callback) => {
+  // create an array of product list
+  const queryStr = 'SELECT * FROM products;';
+  // console.log(prodList);
+  db.query(queryStr, (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 const product_read = (id, callback) => {
   // create an array of product list
   const queryStr = `SELECT * FROM products where product_id = ${id}`;
@@ -59,4 +72,5 @@ module.exports = {
   product_read,
   product_update,
   product_delete,
+  product_readALL,
 };
