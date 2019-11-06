@@ -42,9 +42,10 @@ class ProductOptions extends React.Component {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const options = this.props.products.map((color) => (
+    const options = this.props.products.map((color, index) => (
       // eslint-disable-next-line react/jsx-key
-      <span className="productOption">
+      // eslint-disable-next-line react/no-array-index-key
+      <span className="productOption" key={index}>
         <input type="image" src={color.product_color_image} aria-label={color.product_color} className="jeff-productImage" />
         <label className="productLabel">{color.product_color}</label>
       </span>
