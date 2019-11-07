@@ -12,18 +12,14 @@ const csvWriter = createCsvWriter({
 });
 
 // monitor
-const batchWriter = async (data, batchNumber) => {
+const batchWriter = async (/* data, batchNumber */) => {
   await csvWriter.writeRecords(productData);
-  // if (batchNumber % 100 === 0) {
-  //   // eslint-disable-next-line no-console
-  //   console.log(batchNumber);
-  // }
 };
 
 // 10M
 const writeToCsv = async () => {
   for (let i = 0; i < 1000; i += 1) {
-    productData = dataGenerator.generateProducts(10000);
+    productData = dataGenerator.generateProducts(5000);
     // eslint-disable-next-line no-await-in-loop
     await batchWriter(productData, i);
   }
