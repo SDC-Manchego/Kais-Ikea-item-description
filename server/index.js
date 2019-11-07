@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const controller = require('./controller.js');
+const dbOperate = require('../database/database_operate.js');
 
 const app = express();
 const port = 9000;
@@ -25,6 +26,30 @@ app.get('/api/products', (req, res) => {
     console.log('ikea_products connected');
     res.send(data).status(200);
   });
+});
+
+app.post('/api/products', (req, res) => {
+  res.send('Post request to /products received');
+  const { products } = req.body;
+  console.log({ products });
+  dbOperate.product_create(products, (err, result) => {
+    if (err) {
+      res.status(200).json({
+        error: err,
+        result: 'Error updating products',
+      });
+    } else {
+      res.send('Product(s) saved.');
+    }
+  });
+});
+
+app.put('/products/:id', (req, res) => {
+  res.send(`Received request to update product ${req.params.id}`);
+});
+
+app.delete('/products/:id', (req, res) => {
+  res.send(`Recieved request to delete product ${req.params.id}`);
 });
 
 // check if app is listening
