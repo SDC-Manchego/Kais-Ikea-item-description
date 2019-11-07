@@ -32,7 +32,7 @@ class ProductGenerator {
 
   getProductName() {
     const names = ['BALKARP', 'BRATHULT', 'DELAKTIG', 'EKEBOL', 'FRIHETEN'];
-    return names[getRandomInt(0, 4)];
+    return names[this.getRandomInt(0, 4)];
   }
 
   getDescribe() {
@@ -50,7 +50,7 @@ class ProductGenerator {
   generateProducts(num) {
     const products = [];
     for (let i = 0; i < num; i += 1) {
-      const produst = [
+      const product = [
         this.getAssociatedProductId(),
         this.getRandomCategory(),
         this.getProductName(),
@@ -62,7 +62,7 @@ class ProductGenerator {
         this.getRandomInt(1, 30),
         this.getRandomInt(1, 5),
       ];
-      products.push(produst);
+      products.push(product);
     }
     return products;
   }
