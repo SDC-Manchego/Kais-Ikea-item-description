@@ -3,4 +3,3 @@ node_modules
 
 # ignored file
 client/dist/bundle.js
-database/LargeVolumeData/products.csv
