@@ -27,7 +27,7 @@ class ProductGenerator {
 
   getColor() {
     const colors = ['Hyllie dark gray', 'Hyllie beige', 'Bomstad black', 'Skiftebo blue', 'Skiftebo dark gray', 'red', 'black', 'gray', 'blue', 'white', 'navy', 'pink', 'original red'];
-    return colors[Math.random(colors.length)];
+    return colors[this.getRandomInt(0, 12)];
   }
 
   getProductName() {

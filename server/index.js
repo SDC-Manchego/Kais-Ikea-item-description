@@ -30,7 +30,7 @@ app.use('/:id', express.static('client/dist'));
 //   });
 // });
 
-app.get('/api/products/', (req, res) => {
+app.get('/api/products/:id', (req, res) => {
   dbOperate.product_readALL((err, data) => {
     if (err) {
       // eslint-disable-next-line no-console
@@ -40,12 +40,6 @@ app.get('/api/products/', (req, res) => {
     // eslint-disable-next-line no-console
     res.send(data).status(200);
   });
-});
-
-app.get('/api/products/:id', (req, res) => {
-  const idParam = req.params.id;
-  console.log(idParam);
-  res.send('Post request to /products received');
 });
 
 app.post('/api/products/:id', (req, res) => {
