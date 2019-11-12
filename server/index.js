@@ -14,8 +14,6 @@ const port = 9000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('client/dist'));
-app.use('/:id', express.static('client/dist'));
-
 
 // app.get('/api/products', (req, res) => {
 //   controller.ikea_products.get(req, res, (err, data) => {
@@ -30,7 +28,7 @@ app.use('/:id', express.static('client/dist'));
 //   });
 // });
 
-app.get('/api/products/:id', (req, res) => {
+app.get('/api/products', (req, res) => {
   dbOperate.product_readALL((err, data) => {
     if (err) {
       // eslint-disable-next-line no-console
@@ -38,6 +36,7 @@ app.get('/api/products/:id', (req, res) => {
       return;
     }
     // eslint-disable-next-line no-console
+    console.log('ikea_products connected');
     res.send(data).status(200);
   });
 });
@@ -46,34 +45,24 @@ app.post('/api/products/:id', (req, res) => {
   res.send('Post request to /products received');
   const { products } = req.body;
   console.log({ products });
-  dbOperate.product_create(products, (err) => {
+  dbOperate.product_create(products, (err, result) => {
     if (err) {
       res.status(200).json({
         error: err,
         result: 'Error updating products',
       });
     } else {
-      res.send('Product saved.');
+      res.send('Product(s) saved.');
     }
   });
 });
 
-app.put('/api/products/', (req, res) => {
+app.put('/products/:id', (req, res) => {
   res.send(`Received request to update product ${req.params.id}`);
 });
 
-app.delete('/api/products/', (req, res) => {
+app.delete('/products/:id', (req, res) => {
   res.send(`Recieved request to delete product ${req.params.id}`);
-//   dbOperate.product_readALL((err, data) => {
-//     if (err) {
-//       // eslint-disable-next-line no-console
-//       console.error('error connecting to server');
-//       return;
-//     }
-//     // eslint-disable-next-line no-console
-//     console.log('ikea_products connected');
-//     res.send(data).status(200);
-//   });
 });
 
 // check if app is listening
