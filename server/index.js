@@ -15,8 +15,21 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('client/dist'));
 
+// app.get('/api/products', (req, res) => {
+//   controller.ikea_products.get(req, res, (err, data) => {
+//     if (err) {
+//       // eslint-disable-next-line no-console
+//       console.error('error connecting to server');
+//       return;
+//     }
+//     // eslint-disable-next-line no-console
+//     console.log('ikea_products connected');
+//     res.send(data).status(200);
+//   });
+// });
+
 app.get('/api/products', (req, res) => {
-  controller.ikea_products.get(req, res, (err, data) => {
+  dbOperate.product_readALL((err, data) => {
     if (err) {
       // eslint-disable-next-line no-console
       console.error('error connecting to server');
@@ -28,7 +41,7 @@ app.get('/api/products', (req, res) => {
   });
 });
 
-app.post('/api/products', (req, res) => {
+app.post('/api/products/:id', (req, res) => {
   res.send('Post request to /products received');
   const { products } = req.body;
   console.log({ products });
