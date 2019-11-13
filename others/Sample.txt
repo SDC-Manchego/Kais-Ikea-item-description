@@ -1,5 +1,5 @@
 //POSTGRESQL//
-SELECT * FROM photo where id > 9999990;
+SELECT * FROM photo where id > 8864024;
 
 
   id    | product_id | product_category | product_name |         product_short_desc         |                                            product_ad_desc
