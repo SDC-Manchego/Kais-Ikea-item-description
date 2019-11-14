@@ -2,7 +2,7 @@ const faker = require('faker');
 
 class ProductGenerator {
   generateCsvHeader() {
-    return ['product_id', 'product_category', 'product_name', 'product_short_desc', 'product_ad_desc', 'product_price', 'product_color_image', 'product_color', 'product_age', 'product_avg_rev'];
+    return ['product_category', 'product_name', 'product_short_desc', 'product_ad_desc', 'product_price', 'product_color_image', 'product_color', 'product_age', 'product_avg_rev'];
   }
 
   getRandomInt(min, max) {
@@ -51,7 +51,6 @@ class ProductGenerator {
     const products = [];
     for (let i = 0; i < num; i += 1) {
       const product = [
-        this.getAssociatedProductId(),
         this.getRandomCategory(),
         this.getProductName(),
         this.getDescribe(),

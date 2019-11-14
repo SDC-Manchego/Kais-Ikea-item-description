@@ -19,7 +19,7 @@ const batchWriter = async (/* data, batchNumber */) => {
 // 10M
 const writeToCsv = async () => {
   for (let i = 0; i < 1000; i += 1) {
-    productData = dataGenerator.generateProducts(5000);
+    productData = dataGenerator.generateProducts(10000);
     // eslint-disable-next-line no-await-in-loop
     await batchWriter(productData, i);
   }
