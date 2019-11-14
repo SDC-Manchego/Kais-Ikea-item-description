@@ -1,15 +1,17 @@
 // Database connection
 
-const mysql = require('mysql');
+const { Client } = require('pg');
 // const randProdList = require('mysql');
+require('dotenv').config();
 
 
 // connection details
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '123',
-  database: 'ikea_products',
+const client = new Client({
+  host: process.env.DB_HOST,
+  user: process.env.DB_,USER
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
 // eslint-disable-next-line consistent-return
