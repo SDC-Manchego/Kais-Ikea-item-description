@@ -15,21 +15,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('client/dist'));
 
-// app.get('/api/products', (req, res) => {
-//   controller.ikea_products.get(req, res, (err, data) => {
-//     if (err) {
-//       // eslint-disable-next-line no-console
-//       console.error('error connecting to server');
-//       return;
-//     }
-//     // eslint-disable-next-line no-console
-//     console.log('ikea_products connected');
-//     res.send(data).status(200);
-//   });
-// });
-
 app.get('/api/products', (req, res) => {
-  dbOperate.product_readALL((err, data) => {
+  controller.ikea_products.get(req, res, (err, data) => {
     if (err) {
       // eslint-disable-next-line no-console
       console.error('error connecting to server');
@@ -41,29 +28,42 @@ app.get('/api/products', (req, res) => {
   });
 });
 
-app.post('/api/products/:id', (req, res) => {
-  res.send('Post request to /products received');
-  const { products } = req.body;
-  console.log({ products });
-  dbOperate.product_create(products, (err, result) => {
+app.get('/api/products/:id', (req, res) => {
+  dbOperate.product_readOne(req.params.id, (err, data) => {
     if (err) {
-      res.status(200).json({
-        error: err,
-        result: 'Error updating products',
-      });
-    } else {
-      res.send('Product(s) saved.');
+      // eslint-disable-next-line no-console
+      console.error('error connecting to server');
+      return;
     }
+    // eslint-disable-next-line no-console
+    console.log('ikea_products connected');
+    res.send(data).status(200);
   });
 });
 
-app.put('/products/:id', (req, res) => {
-  res.send(`Received request to update product ${req.params.id}`);
-});
+// app.post('/api/products/:id', (req, res) => {
+//   res.send('Post request to /products received');
+//   const { products } = req.body;
+//   console.log({ products });
+//   dbOperate.product_create(products, (err, result) => {
+//     if (err) {
+//       res.status(200).json({
+//         error: err,
+//         result: 'Error updating products',
+//       });
+//     } else {
+//       res.send('Product(s) saved.');
+//     }
+//   });
+// });
 
-app.delete('/products/:id', (req, res) => {
-  res.send(`Recieved request to delete product ${req.params.id}`);
-});
+// app.put('/products/:id', (req, res) => {
+//   res.send(`Received request to update product ${req.params.id}`);
+// });
+
+// app.delete('/products/:id', (req, res) => {
+//   res.send(`Recieved request to delete product ${req.params.id}`);
+// });
 
 // check if app is listening
 // eslint-disable-next-line no-console

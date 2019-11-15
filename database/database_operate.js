@@ -15,7 +15,7 @@ const product_create = (props, callback) => {
   });
 };
 
-const product_read = (id, callback) => {
+const product_readOne = (id, callback) => {
   // create an array of product list
   const queryStr = `SELECT * FROM products where product_id = ${id}`;
   // console.log(prodList);
@@ -56,7 +56,7 @@ const product_delete = (id, callback) => {
 
 module.exports = {
   product_create,
-  product_read,
+  product_readOne,
   product_update,
   product_delete,
 };

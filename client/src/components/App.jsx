@@ -23,7 +23,7 @@ class ItemDescription extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:9000/api/products')
+    fetch('http://localhost:9000/api/products/')
       .then((productList) => productList.json())
       .then((productList) => this.setState({ productList }))
       .then(this.handleProduct);
@@ -55,6 +55,14 @@ class ItemDescription extends React.Component {
     }
     this.setState({ productOptions: productChoices });
   }
+
+  // fetchData(id) {
+  //   $.get('http://loacalhost:9000/api/products', { id }, (data) => {
+  //     this.setState({
+        
+  //     });
+  //   });
+  // }
 
   render() {
     const revStyle = {

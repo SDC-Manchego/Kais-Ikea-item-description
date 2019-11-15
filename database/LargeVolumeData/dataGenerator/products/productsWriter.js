@@ -1,13 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const createCsvWriter = require('csv-writer').createArrayCsvWriter;
 const path = require('path');
-const dataGenerator = require('./dataGenerator.js');
+const dataGenerator = require('./productsGenerator.js');
 
 let productData;
 // ignore header
 const productHeader = dataGenerator.generateCsvHeader();
 const csvWriter = createCsvWriter({
-  path: path.join(__dirname, 'products.csv'),
+  path: path.join(__dirname, 'CSVfiles', 'products.csv'),
   header: productHeader,
 });
 
@@ -18,8 +18,9 @@ const batchWriter = async (/* data, batchNumber */) => {
 
 // 10M
 const writeToCsv = async () => {
-  for (let i = 0; i < 1000; i += 1) {
-    productData = dataGenerator.generateProducts(5000);
+  for (let i = 0; i < 10; i += 1) {
+    productData = dataGenerator.generateProducts(200);
+
     // eslint-disable-next-line no-await-in-loop
     await batchWriter(productData, i);
   }
