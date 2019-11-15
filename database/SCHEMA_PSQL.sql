@@ -5,7 +5,6 @@ CREATE DATABASE ikea_products;
 
 CREATE TABLE products (
   id SERIAL UNIQUE PRIMARY KEY,
-  product_id INT NOT NULL,
   product_category VARCHAR(50) NOT NULL,
   product_name VARCHAR(30) NOT NULL,
   product_short_desc TEXT NOT NULL,
