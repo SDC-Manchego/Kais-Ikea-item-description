@@ -15,19 +15,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('client/dist'));
 
-app.get('/api/products', (req, res) => {
-  controller.ikea_products.get(req, res, (err, data) => {
-    if (err) {
-      // eslint-disable-next-line no-console
-      console.error('error connecting to server');
-      return;
-    }
-    // eslint-disable-next-line no-console
-    console.log('ikea_products connected');
-    res.send(data).status(200);
-  });
-});
-
 app.get('/api/products/:id', (req, res) => {
   dbOperate.product_readOne(req.params.id, (err, data) => {
     if (err) {
@@ -67,6 +54,6 @@ app.get('/api/products/:id', (req, res) => {
 
 // check if app is listening
 // eslint-disable-next-line no-console
-app.listen(port, () => { console.log(`listening on ${port}`); });
+app.listen(port, () => { console.log(`${Date()} listening on ${port}`); });
 
 module.exports.app = app;

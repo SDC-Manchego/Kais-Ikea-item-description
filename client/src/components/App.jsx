@@ -20,18 +20,21 @@ class ItemDescription extends React.Component {
 
     this.handleProduct = this.handleProduct.bind(this);
     this.urlProductId = this.urlProductId.bind(this);
+    this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
-    fetch('http://localhost:9000/api/products/')
-      .then((productList) => productList.json())
-      .then((productList) => this.setState({ productList }))
-      .then(this.handleProduct);
+    // fetch('http://localhost:9000/api/products/')
+    //   .then((data) => console.log(data))
+    //   .then((productList) => productList.json())
+    //   .then((productList) => this.setState({ productList }))
+    //   .then(this.handleProduct);
+    this.fetchData(this.urlProductId());
   }
 
-  getItemDescriptionById(id) {
+  getItemDescriptionById() {
     // eslint-disable-next-line react/no-access-state-in-setstate
-    this.setState({ product: this.state.productList[this.urlProductId()] });
+    this.setState({ product: this.state.productList[0] });
   }
 
   urlProductId() {
@@ -45,24 +48,29 @@ class ItemDescription extends React.Component {
   // selects a random product from the list of products to display
   handleProduct() {
     // eslint-disable-next-line prefer-const
-    let id = this.getItemDescriptionById(this.urlProductId);
-    const productChoices = [];
+    // this.getItemDescriptionById();
+    // const productChoices = [];
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < this.state.productList.length; i++) {
-      if (this.state.productList[i].product_name === this.state.product.product_name) {
-        productChoices.push(this.state.productList[i]);
-      }
-    }
-    this.setState({ productOptions: productChoices });
+    // for (let i = 0; i < this.state.productList.length; i++) {
+    //   if (this.state.productList[i].product_name === this.state.product.product_name) {
+    //     productChoices.push(this.state.productList[i]);
+    //   }
+    // }
+    // eslint-disable-next-line react/no-access-state-in-setstate
+    this.setState({ productOptions: this.state.productList });
   }
 
-  // fetchData(id) {
-  //   $.get('http://loacalhost:9000/api/products', { id }, (data) => {
-  //     this.setState({
-        
-  //     });
-  //   });
-  // }
+  fetchData(id) {
+    $.get('http://localhost:9000/api/products/' + id, (data) => {
+      console.log(data.rows);
+      this.setState({
+        productList: data.rows,
+        productOptions: data.rows,
+        product: data.rows[0],
+      });
+      console.log(this.state);
+    }, 'json');
+  }
 
   render() {
     const revStyle = {

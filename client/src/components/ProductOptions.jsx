@@ -46,7 +46,7 @@ class ProductOptions extends React.Component {
       // eslint-disable-next-line react/jsx-key
       // eslint-disable-next-line react/no-array-index-key
       <span className="productOption" key={index}>
-        <input type="image" src={color.product_color_image} aria-label={color.product_color} className="jeff-productImage" />
+        <input type="image" src={color.image_url} aria-label={color.product_color} className="jeff-productImage" />
         <label className="productLabel">{color.product_color}</label>
       </span>
     ));

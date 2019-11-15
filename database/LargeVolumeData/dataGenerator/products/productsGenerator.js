@@ -1,12 +1,15 @@
+/* eslint-disable class-methods-use-this */
 const faker = require('faker');
 
 class ProductGenerator {
   generateCsvHeader() {
     return ['product_category', 'product_name', 'product_short_desc', 'product_ad_desc', 'product_price', 'product_color', 'product_age', 'product_avg_rev'];
-}
+  }
 
   getRandomInt(min, max) {
+    // eslint-disable-next-line no-param-reassign
     min = Math.ceil(min);
+    // eslint-disable-next-line no-param-reassign
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }

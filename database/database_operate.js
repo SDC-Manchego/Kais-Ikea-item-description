@@ -17,9 +17,9 @@ const product_create = (props, callback) => {
 
 const product_readOne = (id, callback) => {
   // create an array of product list
-  const queryStr = `SELECT * FROM products where id = ${id}`;
+  const queryStr = `select * from products p inner join products_images pi on p.id = ${id} and p.id = pi.product_id inner join images i on pi.image_id = i.id`;
   // console.log(prodList);
-  db.query(queryStr, id, (error, results) => {
+  db.query(queryStr, (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -53,6 +53,8 @@ const product_delete = (id, callback) => {
     }
   });
 };
+
+// console.log(product_readOne(41, (a, b) => { console.log(a, b); }));
 
 module.exports = {
   product_create,
