@@ -3,7 +3,7 @@ const faker = require('faker');
 class ProductGenerator {
   generateCsvHeader() {
     return ['product_category', 'product_name', 'product_short_desc', 'product_ad_desc', 'product_price', 'product_color', 'product_age', 'product_avg_rev'];
-  }
+}
 
   getRandomInt(min, max) {
     min = Math.ceil(min);

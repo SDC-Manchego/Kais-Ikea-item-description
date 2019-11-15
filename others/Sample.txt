@@ -1,0 +1,38 @@
+//POSTGRESQL//
+SELECT * FROM photo where id > 8864024;
+
+
+  id    | product_id | product_category | product_name |         product_short_desc         |                                            product_ad_desc
+        | product_price |                                 product_color_image                                 |   product_color    | product_age | product_avg_rev
+---------+------------+------------------+--------------+------------------------------------+-----------------------------------------------------------------------------------------------
+--------+---------------+-------------------------------------------------------------------------------------+--------------------+-------------+-----------------
+ 8864025 |    7999999 | Rest room        | DELAKTIG     | cumque quia nihil                  | Et ut necessitatibus eum sed illo quo amet est.
+        |           107 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | Hyllie dark gray   |          14 |               4
+ 8864026 |     131265 | Living room      | FRIHETEN     | asperiores velit sequi             | Aut aut dolor laborum aut perspiciatis magnam quidem nemo.
+        |           199 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | pink               |           2 |               4
+ 8864027 |    2146915 | Living room      | EKEBOL       | ut temporibus totam                | Sint voluptas ut accusamus voluptatem rerum expedita.
+        |           157 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | white              |          19 |               3
+ 8864028 |    3231027 | Living room      | EKEBOL       | deleniti ipsum aliquam             | Hic fugit velit veniam ipsa.
+        |           399 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | blue               |           9 |               1
+ 8864029 |    9789142 | Rest room        | EKEBOL       | aliquam sint et                    | Rerum natus sed veniam qui itaque impedit aut aliquid.
+        |           345 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | navy               |          28 |               5
+ 8864030 |    7770852 | Bed room         | FRIHETEN     | facere mollitia eum                | Omnis natus consequatur facere cum id deserunt alias officiis distinctio.
+        |           153 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | red                |          10 |               2
+ 8864031 |    6094723 | Lobby            | BALKARP      | quo consequuntur ab                | Velit delectus quia qui.
+        |            92 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | gray               |          16 |               1
+ 8864032 |    2829460 | Living room      | BRATHULT     | voluptates quam veniam             | Quae similique provident error non dolor quaerat unde.
+        |           260 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | Skiftebo blue      |           1 |               5
+ 8864033 |    6286727 | Lobby            | BRATHULT     | natus neque consequuntur           | Omnis pariatur omnis maiores iusto explicabo optio animi.
+        |           401 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | white              |           4 |               1
+ 8864034 |    8305192 | Lobby            | BALKARP      | quos asperiores quasi              | Architecto sit sit eos quis reiciendis magnam ducimus commodi.                                        |           594 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | Skiftebo dark gray |          29 |               1
+ 8864035 |    2903616 | Kitchen          | DELAKTIG     | sunt vel minus                     | Beatae aut atque doloremque provident.                                                                |           178 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | white              |           4 |               1
+ 8864036 |    3843317 | Lobby            | DELAKTIG     | harum harum consequuntur           | Natus ex delectus aut id.                                                                             |           303 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | Skiftebo dark gray |          22 |               5
+ 8864037 |    6231470 | Living room      | DELAKTIG     | qui explicabo reiciendis           | Est molestias molestias.                                                                              |           110 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | original red       |          12 |               3
+ 8864038 |    9358341 | Living room      | FRIHETEN     | esse unde nobis                    | Fuga et magni sit molestiae aut consequuntur quam qui.                                                |           603 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | Hyllie dark gray   |          11 |               2
+ 8864039 |    7500193 | Living room      | BALKARP      | est facilis voluptas               | Deleniti atque fugiat harum illum ea fugit nemo fugit ut.                                             |           604 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | blue               |          21 |               3
+ 8864040 |    9639424 | Rest room        | EKEBOL       | est harum cupiditate               | Tempora omnis illum repudiandae earum enim odio.                                                      |            72 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | Skiftebo dark gray |          12 |               3
+ 8864041 |    7706661 | Rest room        | BRATHULT     | ut accusantium sunt                | Neque eum qui fuga similique dolor delectus qui.                                                      |           553 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | gray               |          12 |               5
+ 8864042 |    4537682 | Bed room         | EKEBOL       | saepe ut eos                       | Veniam nobis aut reiciendis.                                                                          |           326 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | white              |          10 |               2
+ 8864043 |    4815976 | Living room      | DELAKTIG     | quis sed et                        | Accusantium consequatur omnis veritatis.                                                              |           498 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | red                |          13 |               2
+ 8864044 |    3873498 | Living room      | EKEBOL       | adipisci quisquam corporis         | Quisquam voluptas consequuntur nemo est commodi.                                                      |            17 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | Skiftebo dark gray |          18 |               1
+ 8864045 |     850803 | Kitchen          | BALKARP      | eum iure distinctio                | Minus qui quia accusantium consequatur.                                                               |           592 | https://fec-piccolo.s3-us-west-1.amazonaws.com/products/FRIHETEN-bomstad+black.webp | white              |          11 |

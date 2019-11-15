@@ -2,5 +2,6 @@
 node_modules
 
 # ignored file
+.env
 client/dist/bundle.js
 database/LargeVolumeData/dataGenerator/products.csv
