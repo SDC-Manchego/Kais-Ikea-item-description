@@ -7,7 +7,7 @@ let productData;
 // ignore header
 const productHeader = dataGenerator.generateCsvHeader();
 const csvWriter = createCsvWriter({
-  path: path.join(__dirname, 'CSVfiles', 'products.csv'),
+  path: path.join(__dirname, '../', 'CSVfiles', 'products.csv'),
   header: productHeader,
 });
 
@@ -18,8 +18,8 @@ const batchWriter = async (/* data, batchNumber */) => {
 
 // 10M
 const writeToCsv = async () => {
-  for (let i = 0; i < 10; i += 1) {
-    productData = dataGenerator.generateProducts(200);
+  for (let i = 0; i < 1000; i += 1) {
+    productData = dataGenerator.generateProducts(10000);
     // eslint-disable-next-line no-await-in-loop
     await batchWriter(productData, i);
   }

@@ -7,7 +7,7 @@ let PIData;
 // ignore header
 const PIHeader = PIGenerator.generateCsvHeader();
 const csvWriter = createCsvWriter({
-  path: path.join(__dirname, 'CSVfiles', 'PI.csv'),
+  path: path.join(__dirname, '../', 'CSVfiles', 'PI.csv'),
   header: PIHeader,
 });
 
@@ -18,8 +18,8 @@ const batchWriter = async (/* data, batchNumber */) => {
 
 // 10M
 const writeToCsv = async () => {
-  for (let i = 0; i < 10; i += 1) {
-    PIData = PIGenerator.generatePI(2000);
+  for (let i = 0; i < 2000; i += 1) {
+    PIData = PIGenerator.generatePI(20000);
 
     // eslint-disable-next-line no-await-in-loop
     await batchWriter(PIData, i);

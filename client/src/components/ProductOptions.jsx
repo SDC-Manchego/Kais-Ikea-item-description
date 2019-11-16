@@ -13,7 +13,6 @@ class ProductOptions extends React.Component {
       modalIsOpen: false,
       productColor: '',
     };
-
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }

@@ -21,8 +21,8 @@ class PIGenerator {
     const pis = [];
     for (let i = 0; i < num; i += 1) {
       const pi = [
-        this.getRandomInt(1, 2000),
-        this.getRandomInt(1, 2000),
+        this.getRandomInt(1, 10000000),
+        this.getRandomInt(1, 1000000),
       ];
       pis.push(pi);
     }

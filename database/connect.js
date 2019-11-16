@@ -11,6 +11,7 @@ const { Pool } = require('pg');
 //   password: '123',
 //   database: 'ikea_products',
 // });
+
 const pool = new Pool({
   user: 'postgres',
   database: 'ikea_products',

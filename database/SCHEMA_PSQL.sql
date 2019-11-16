@@ -29,7 +29,5 @@ DROP TABLE IF EXISTS products_images;
 CREATE TABLE products_images (
   id SERIAL PRIMARY KEY,
   product_id INT NOT NULL,
-  image_id INT NOT NULL,
-  FOREIGN KEY (product_id) REFERENCES products (id),
-  FOREIGN KEY (image_id) REFERENCES images (id)
+  image_id INT NOT NULL
 );

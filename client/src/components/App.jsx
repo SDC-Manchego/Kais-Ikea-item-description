@@ -20,16 +20,18 @@ class ItemDescription extends React.Component {
 
     this.handleProduct = this.handleProduct.bind(this);
     this.urlProductId = this.urlProductId.bind(this);
-    this.fetchData = this.fetchData.bind(this);
+    // this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
-    // fetch('http://localhost:9000/api/products/')
-    //   .then((data) => console.log(data))
-    //   .then((productList) => productList.json())
-    //   .then((productList) => this.setState({ productList }))
-    //   .then(this.handleProduct);
-    this.fetchData(this.urlProductId());
+    fetch('http://localhost:9000/api/products/' + this.urlProductId())
+      .then((productList) => productList.json())
+      .then((productList) => this.setState({
+        productList: productList.rows,
+        product: productList.rows[0],
+      }))
+      .then(this.handleProduct);
+    // this.fetchData(this.urlProductId());
   }
 
   getItemDescriptionById() {
@@ -60,17 +62,17 @@ class ItemDescription extends React.Component {
     this.setState({ productOptions: this.state.productList });
   }
 
-  fetchData(id) {
-    $.get('http://localhost:9000/api/products/' + id, (data) => {
-      console.log(data.rows);
-      this.setState({
-        productList: data.rows,
-        productOptions: data.rows,
-        product: data.rows[0],
-      });
-      console.log(this.state);
-    }, 'json');
-  }
+  // fetchData(id) {
+  //   $.get('http://localhost:9000/api/products/' + id, (data) => {
+  //     // console.log(data.rows);
+  //     this.setState({
+  //       productList: data.rows,
+  //       productOptions: data.rows,
+  //       product: data.rows[0],
+  //     });
+  //     // console.log(this.state);
+  //   }, 'json');
+  // }
 
   render() {
     const revStyle = {
@@ -111,7 +113,6 @@ class ItemDescription extends React.Component {
         <div className="jeff-productOptions">
           <ProductOptions
             products={this.state.productOptions}
-            handleProduct={this.handleProduct}
             product={this.state.product}
           />
         </div>

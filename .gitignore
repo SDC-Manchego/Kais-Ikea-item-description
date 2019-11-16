@@ -1,7 +1,4 @@
-# ignored folder
 node_modules
-
-# ignored file
+database/LargeVolumeData/dataGenerator/CSVfiles
 .env
 client/dist/bundle.js
-database/LargeVolumeData/dataGenerator/products.csv
