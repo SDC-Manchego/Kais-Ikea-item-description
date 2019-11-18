@@ -2,7 +2,7 @@
 /* eslint-disable class-methods-use-this */
 // import requirements
 import React from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 import StarRatings from 'react-star-ratings';
 import ProductOptions from './ProductOptions.jsx';
 import ProductPurchase from './ProductPurchase.jsx';
@@ -14,13 +14,12 @@ class ItemDescription extends React.Component {
 
     this.state = {
       productList: [],
-      productOptions: [],
+      // productOptions: [],
       product: {},
     };
 
     this.handleProduct = this.handleProduct.bind(this);
     this.urlProductId = this.urlProductId.bind(this);
-    // this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
@@ -28,10 +27,8 @@ class ItemDescription extends React.Component {
       .then((productList) => productList.json())
       .then((productList) => this.setState({
         productList: productList.rows,
-        product: productList.rows[0],
       }))
       .then(this.handleProduct);
-    // this.fetchData(this.urlProductId());
   }
 
   getItemDescriptionById() {
@@ -50,35 +47,13 @@ class ItemDescription extends React.Component {
   // selects a random product from the list of products to display
   handleProduct() {
     // eslint-disable-next-line prefer-const
-    // this.getItemDescriptionById();
-    // const productChoices = [];
-    // eslint-disable-next-line no-plusplus
-    // for (let i = 0; i < this.state.productList.length; i++) {
-    //   if (this.state.productList[i].product_name === this.state.product.product_name) {
-    //     productChoices.push(this.state.productList[i]);
-    //   }
-    // }
-    // eslint-disable-next-line react/no-access-state-in-setstate
-    this.setState({ productOptions: this.state.productList });
+    this.getItemDescriptionById();
   }
-
-  // fetchData(id) {
-  //   $.get('http://localhost:9000/api/products/' + id, (data) => {
-  //     // console.log(data.rows);
-  //     this.setState({
-  //       productList: data.rows,
-  //       productOptions: data.rows,
-  //       product: data.rows[0],
-  //     });
-  //     // console.log(this.state);
-  //   }, 'json');
-  // }
 
   render() {
     const revStyle = {
       textDecoration: 'none',
     };
-    // console.log(this.state);
     return (
       <div className="jeff_product_details">
         <div className="product_price">
@@ -87,7 +62,7 @@ class ItemDescription extends React.Component {
             <span className="jeff-product_name">{this.state.product.product_name}</span>
             <span className="jeff-shortDesc">{this.state.product.product_short_desc}</span>
           </h1>
-          <p className="jeff-product_cost">{`$${parseFloat(this.state.product.product_price).toFixed(2)}`}</p>
+          <p className="jeff-product_cost">{`$${this.state.product.product_price}.00`}</p>
           <div className="jeff-aggregatedRating">
             <a style={revStyle} className="jeff-reviews" href="test">
               <span className="jeff-stars">
@@ -112,7 +87,7 @@ class ItemDescription extends React.Component {
         </div>
         <div className="jeff-productOptions">
           <ProductOptions
-            products={this.state.productOptions}
+            products={this.state.productList}
             product={this.state.product}
           />
         </div>
