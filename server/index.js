@@ -14,12 +14,15 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('client/dist'));
 
-app.get('/api/products/:id', (req, res) => {
+app.get('/api/products/:id', async (req, res) => {
   let id = req.params.id;
-  dbOperate.product_readOne(id, (err, data) => {
-    if (err) throw err;
-    res.send(data).status(200);
-  });
+  try {
+    await dbOperate.product_readOne(id, (err, data) =>{
+      res.send(data).status(200);
+    })
+  } catch (err) {
+    console.log( err);
+  }
 });
 
 // check if app is listening

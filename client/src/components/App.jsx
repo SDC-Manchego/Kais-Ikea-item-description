@@ -23,7 +23,7 @@ class ItemDescription extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:9000/api/products/' + this.urlProductId())
+    fetch('http://ec2-52-53-171-73.us-west-1.compute.amazonaws.com:9000/api/products/' + this.urlProductId())
       .then((productList) => productList.json())
       .then((productList) => this.setState({
         productList: productList.rows,

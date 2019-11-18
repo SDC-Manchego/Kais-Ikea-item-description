@@ -7,10 +7,10 @@ export const options = {
   // vus: 5,
   // 4 level from 1 - 1000
   stages: [
-    { duration: "10m", target: 1 },
-    { duration: "10m", target: 10 },
-    { duration: "10m", target: 100 },
-    { duration: "10m", target: 1000 }
+    { duration: "1m", target: 1 },
+    { duration: "1m", target: 10 },
+    { duration: "1m", target: 100 },
+    { duration: "1m", target: 1000 }
   ],
   rps: 1000,
 };
