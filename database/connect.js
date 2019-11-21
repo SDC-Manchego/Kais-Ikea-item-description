@@ -14,8 +14,10 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   user: 'postgres',
+  host: 'ec2-13-52-247-197.us-west-1.compute.amazonaws.com',
   database: 'ikea_products',
   password: '123',
+  port: "5432",
 });
 
 // eslint-disable-next-line consistent-return
